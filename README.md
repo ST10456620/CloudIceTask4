@@ -1,4 +1,4 @@
-# CoffeeNChill Canteen Management System — Part 1
+# CoffeeNChill Canteen Management System-Part 1
 
 ## Overview
 
