@@ -3,16 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Azure.Storage.Files.Shares;
+using CoffeeNChill.Services;
 
 namespace CoffeeNChill.Functions;
 
 public class UploadStaffDocument
 {
-    private readonly ILogger<UploadStaffDocument> _logger;
+    private readonly FileShareService _fileShareService;
 
-    public UploadStaffDocument(ILogger<UploadStaffDocument> logger)
+    public UploadStaffDocument(FileShareService fileShareService)
     {
-        _logger = logger;
+        _fileShareService = fileShareService;
     }
 
     [Function("UploadStaffDocument")]
@@ -24,19 +25,9 @@ public class UploadStaffDocument
         }
 
         var file = req.Form.Files[0];
+		using var stream = file.OpenReadStream();
+        var size = await _fileShareService.UploadFileAsync(file.FileName, stream);
 
-		var connectionString = Environment.GetEnvironmentVariable("AzureFilesConnection");
-		var shareClient = new ShareClient(connectionString, "staff-docs");
-		await shareClient.CreateIfNotExistsAsync();
-
-		var directory = shareClient.GetRootDirectoryClient();
-		var fileClient = directory.GetFileClient(file.FileName);
-
-        using var stream = file.OpenReadStream();
-        await fileClient.CreateAsync(stream.Length);
-        await fileClient.UploadRangeAsync(new Azure.HttpRange(0, stream.Length), stream);
-
-        _logger.LogInformation("Uploaded {FileName} ({Size} bytes) to staff-docs", file.FileName, stream.Length);
-        return new OkObjectResult($"Uploaded '{file.FileName}' ({stream.Length} bytes) to staff-docs.");
+        return new OkObjectResult($"Uploaded '{file.FileName}' ({size} bytes) to staff-docs.");
 	}
 }
