@@ -4,7 +4,7 @@
 
 CoffeeNChill is a campus canteen management system being modernized from paper-based menus, order slips, and filing-cabinet recipe documents into a cloud-enabled microservices system. The project is built incrementally across three parts, covering Azure Storage, Serverless Functions, Docker Containerization, Web APIs, JWT Authentication, and VPS Hosting.
 
-This repository covers **Part 1 — Azure Functions, Tables, Files & Docker Hub**, which lays the cloud foundation: Azure Table Storage for the digital menu, an Azure File Share for staff operational documents, and HTTP-triggered Azure Functions running locally in isolated Docker containers via Azurite emulation.
+This repository covers **Part 1 -Azure Functions, Tables, Files & Docker Hub**, which lays the cloud foundation: Azure Table Storage for the digital menu, an Azure File Share for staff operational documents, and HTTP-triggered Azure Functions running locally in isolated Docker containers via Azurite emulation.
 
 ## Project Structure
 
