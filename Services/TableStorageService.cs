@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
-// CRUD implementation adapted from the query and entity-operation patterns
-// shown in the Azure.Data.Tables client library documentation (Microsoft, 2025).
 using Azure;
 using Azure.Data.Tables;
 using CoffeeNChill.Models;
@@ -14,6 +11,9 @@ namespace CoffeeNChill.Services
     /// Wraps Azure Table Storage operations for the MenuItems table,
     /// isolating the rest of the app from the Azure.Data.Tables SDK directly.
     /// </summary>
+
+    // CRUD implementation adapted from the query and entity-operation patterns
+    // shown in the Azure.Data.Tables client library documentation (Microsoft, 2025).
     public class TableStorageService
     {
         private readonly TableClient _tableClient;
