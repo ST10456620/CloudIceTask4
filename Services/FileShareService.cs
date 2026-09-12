@@ -2,31 +2,29 @@
 using System.Collections.Generic;
 using System.Text;
 using Azure;
-using Azure.Storage.Files.Shares;
-using Azure.Storage.Files.Shares.Models;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 
 namespace CoffeeNChill.Services
 {
    public class FileShareService
     {
 
-        private readonly ShareClient _shareClient;
-        public FileShareService(string connectionString, string shareName) 
+        private readonly BlobContainerClient _containerClient;
+        public FileShareService(string connectionString, string containerName) 
         {
 
-            _shareClient = new ShareClient(connectionString, shareName);
+            _containerClient = new BlobContainerClient(connectionString, containerName);
         }
 
         public async Task<long> UploadFileAsync(string fileName, Stream content)
         {
-            await _shareClient.CreateIfNotExistsAsync();
-			var directory = _shareClient.GetRootDirectoryClient();
-			var fileClient = directory.GetFileClient(fileName);
+            await _containerClient.CreateIfNotExistsAsync();
+			var blobClient = _containerClient.GetBlobClient(fileName);
 
-			await fileClient.CreateAsync(content.Length);
-			await fileClient.UploadRangeAsync(new Azure.HttpRange(0, content.Length), content);
+			await blobClient.UploadAsync(content, overwrite: true);
 
-            return content.Length;
+			return content.Length;
 		}
 
         public async Task<List<object>> ListFilesAsync() 
@@ -34,37 +32,29 @@ namespace CoffeeNChill.Services
 
 			var documents = new List<object>();
 
-            if(!await _shareClient.ExistsAsync())
+            if(!await _containerClient.ExistsAsync())
             return documents;
 
-			var directory = _shareClient.GetRootDirectoryClient();
 
-			await foreach (ShareFileItem item in directory.GetFilesAndDirectoriesAsync())
+			await foreach (BlobItem blob in _containerClient.GetBlobsAsync())
 			{
-				if (item.IsDirectory) continue; // skip subfolders, only list files
 
-				var fileClient = directory.GetFileClient(item.Name);
-				ShareFileProperties props = await fileClient.GetPropertiesAsync();
-
-				documents.Add(new { FileName = item.Name, SizeBytes = props.ContentLength, LastModified = props.LastModified });
-
+				documents.Add(new { FileName = blob.Name, SizeBytes = blob.Properties.ContentLength, LastModified = blob.Properties.LastModified });
 
 			}
 
 			return documents;
 		}
 
-		public async Task <ShareFileDownloadInfo?>DownloadFileAsync(string fileName)
+		public async Task <BlobDownloadInfo?> DownloadFileAsync(string fileName)
 		{
 
-			var directory = _shareClient.GetRootDirectoryClient();
-			var fileClient = directory.GetFileClient(fileName);
+			var blobClient = _containerClient.GetBlobClient(fileName);
 
-
-			if (!await fileClient.ExistsAsync())
+			if (!await blobClient.ExistsAsync())
 				return null;
 
-			return await fileClient.DownloadAsync();
+			return await blobClient.DownloadAsync();
 		}
 
     }
