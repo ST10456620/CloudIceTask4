@@ -1,6 +1,7 @@
 using System.Net;
 using Azure.Storage.Files.Shares;
 using Azure.Storage.Files.Shares.Models;
+using CoffeeNChill.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
@@ -11,30 +12,23 @@ namespace CoffeeNChill.Functions;
 public class DownloadStaffDocument
 {
     private readonly ILogger<DownloadStaffDocument> _logger;
+    private readonly FileShareService _fileShareService;
 
-    public DownloadStaffDocument(ILogger<DownloadStaffDocument> logger)
+    public DownloadStaffDocument(ILogger<DownloadStaffDocument> logger, FileShareService fileShareService)
     {
         _logger = logger;
+        _fileShareService = fileShareService;
     }
 
     [Function("DownloadStaffDocument")]
     public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "documents/download/{fileName}")] HttpRequest req, string fileName)
     {
-        var connectionString = Environment.GetEnvironmentVariable("AzureFilesConnection");
-        var shareClient = new ShareClient(connectionString, "staff-docs");
-        var directory = shareClient.GetRootDirectoryClient();
-        var fileClient = directory.GetFileClient(fileName);
+       var download = await _fileShareService.DownloadFileAsync(fileName);
 
-        if (!await fileClient.ExistsAsync()) 
-        {
+        if (download != null)
+            return new NotFoundObjectResult($"'{fileName}' not found.");
 
-            
-            return new NotFoundObjectResult($"'{fileName}' not found in staff-doc.");
-        }
-
-		_logger.LogInformation("Downloading document {documentName}", fileName);
-
-		ShareFileDownloadInfo download = await fileClient.DownloadAsync();
+        _logger.LogInformation("Downloading {FileName}", fileName);
 
         return new FileStreamResult(download.Content, download.ContentType ?? "application/octet-stream")
         { 
