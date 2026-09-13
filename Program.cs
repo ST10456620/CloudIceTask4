@@ -10,7 +10,13 @@ using CoffeeNChill.Services;
 var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.ConfigureFunctionsWebApplication();
-builder.Services.AddSingleton(new CoffeeNChill.Services.TableStorageService("UseDevelopmentStorage=true"));
+
+var storageConnectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage") ?? "UseDevelopmentStorage=true";
+
+builder.Services.AddSingleton(new TableStorageService(storageConnectionString));
+builder.Services.AddSingleton(new FileShareService(storageConnectionString, "staff-docs"));
+
+//builder.Services.AddSingleton(new CoffeeNChill.Services.TableStorageService("UseDevelopmentStorage=true"));
 
 if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("APPLICATIONINSIGHTS_CONNECTION_STRING")))
 {
@@ -21,15 +27,15 @@ if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("APPLICATIONINSIGHT
 
 //Service
 
-var host = new HostBuilder()
-.ConfigureFunctionsWebApplication()
-.ConfigureServices(services =>{
-    services.AddSingleton(sp =>
-    {
-        var connectionString = Environment.GetEnvironmentVariable("AzureFilesConnection");
-        return new FileShareService(connectionString!, "staff-docs");
-    });
-}).Build();
+//var host = new HostBuilder()
+//.ConfigureFunctionsWebApplication()
+//.ConfigureServices(services =>{
+//    services.AddSingleton(sp =>
+//    {
+//        var connectionString = Environment.GetEnvironmentVariable("AzureFilesConnection");
+//        return new FileShareService(connectionString!, "staff-docs");
+//    });
+//}).Build();
 
-host.Run();
+//host.Run();
 builder.Build().Run();

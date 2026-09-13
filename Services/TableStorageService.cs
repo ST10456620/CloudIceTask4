@@ -17,7 +17,7 @@ namespace CoffeeNChill.Services
     public class TableStorageService
     {
         private readonly TableClient _tableClient;
-
+       
         /// <param name="connectionString">Storage connection string (Azurite: "UseDevelopmentStorage=true").</param>
         /// <param name="tableName">Name of the table to operate on. Defaults to "MenuItems".</param>
         public TableStorageService(string connectionString, string tableName = "MenuItems")
