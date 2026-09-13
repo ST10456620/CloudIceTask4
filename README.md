@@ -129,11 +129,16 @@ Microsoft, 2026. *Guide for running C# Azure Functions in an isolated worker mod
 
 ## Annexure
 
-Disclosure of AI Usage in our Assesment
+Disclosure of AI Usage in our Assesment 
+
 Section within the assessment in which generative AI was used: Blob Storage
+
 Name of AI tool used: Claude
+
 Purpose: Correcting and generate the right code
+
 Date: 10 September 2026
+
 Link: <https://claude.ai/chat/c8712ed9-d9d6-4503-9ca5-ba62c56df2fb>
 
 
