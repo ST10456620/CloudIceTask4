@@ -116,3 +116,23 @@ Microsoft, 2025. *Azure.Data.Tables client library for .NET*. [Source code] Avai
 Microsoft, 2025. *Azure Functions HTTP trigger for .NET isolated worker functions*. [online] Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?pivots=programming-language-csharp> [Accessed 02 September 2026].
 
 Microsoft, 2025. *Dependency injection in .NET Azure Functions*. [online] Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/functions-dotnet-dependency-injection> [Accessed 02 September 2026].
+
+Microsoft, 2025. *Quickstart: Azure Blob Storage Client Library for .NET*. [omline]
+Available at: <https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=visual-studio%2Cmanaged-identity%2Croles-azure-portal%2Csign-in-azure-cli%2Cidentity-visual-studio&pivots=blob-storage-quickstart-scratch>
+[Accessed 09 September 2026].
+
+Microsoft, 2025. *Azure Functions HTTP trigger*. [online]
+Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=python-v2%2Cisolated-process%2Cnodejs-v4%2Cfunctionsv2&pivots=programming-language-csharp>[Accessed 09 September 2026].
+
+Microsoft, 2026. *Guide for running C# Azure Functions in an isolated worker model*.[online] Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=ihostapplicationbuilder%2Cconfig%2Cwindows>
+
+## Annexure
+
+Disclosure of AI Usage in our Assesment
+Section within the assessment in which generative AI was used: Blob Storage
+Name of AI tool used: Claude
+Purpose: Correcting and generate the right code
+Date: 10 September 2026
+Link: <https://claude.ai/chat/c8712ed9-d9d6-4503-9ca5-ba62c56df2fb>
+
+
