@@ -125,7 +125,7 @@ Available at: <https://learn.microsoft.com/en-us/azure/storage/blobs/storage-qui
 Microsoft, 2025. *Azure Functions HTTP trigger*. [online]
 Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=python-v2%2Cisolated-process%2Cnodejs-v4%2Cfunctionsv2&pivots=programming-language-csharp>[Accessed 09 September 2026].
 
-Microsoft, 2026. *Guide for running C# Azure Functions in an isolated worker model*.[online] Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=ihostapplicationbuilder%2Cconfig%2Cwindows>
+Microsoft, 2026. *Guide for running C# Azure Functions in an isolated worker model*.[online] Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=ihostapplicationbuilder%2Cconfig%2Cwindows>[Accessed 09 September].
 
 ## Annexure
 
