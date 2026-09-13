@@ -96,10 +96,11 @@ docker run -p 7071:80 -e AzureWebJobsStorage="UseDevelopmentStorage=true" <docke
 - Registered `TableStorageService` in `Program.cs` for constructor injection into the Menu functions.
 - Removed the default `Function1.cs` scaffold stub.
 - Installed the `Azure.Data.Tables` NuGet package (12.12.0).
+- Installed the `Azure.Blob.Storage` NuGet package
+- Completed Document Functions (`UploadStaffDocument`, `ListStaffDocuments`, `DownloadStaffDocument`) and `FileShareService`. 
 
 ### In Progress / Pending
 
-- Document Functions (`UploadStaffDocument`, `ListStaffDocuments`, `DownloadStaffDocument`) and `FileShareService`.
 - Docker containerization: finalizing the Dockerfile, building and pushing `coffeenchill-functions:v1.0` and `coffeenchill-azurite:v1.0` to Docker Hub.
 - Postman collection covering all eight endpoints.
 - Full integration test against the containerized setup.
