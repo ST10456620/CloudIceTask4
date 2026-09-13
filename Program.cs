@@ -21,15 +21,15 @@ if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("APPLICATIONINSIGHT
 
 //Service
 
-var host = new HostBuilder()
-.ConfigureFunctionsWebApplication()
-.ConfigureServices(services =>{
-    services.AddSingleton(sp =>
-    {
-        var connectionString = Environment.GetEnvironmentVariable("AzureFilesConnection");
-        return new FileShareService(connectionString!, "staff-docs");
-    });
-}).Build();
+//var host = new HostBuilder()
+//.ConfigureFunctionsWebApplication()
+//.ConfigureServices(services =>{
+//    services.AddSingleton(sp =>
+//    {
+//        var connectionString = Environment.GetEnvironmentVariable("AzureFilesConnection");
+//        return new FileShareService(connectionString!, "staff-docs");
+//    });
+//}).Build();
 
-host.Run();
+//host.Run();
 builder.Build().Run();
