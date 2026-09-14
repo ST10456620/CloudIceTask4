@@ -17,6 +17,13 @@ builder.Services.AddSingleton(sp =>
       return new FileShareService(connectionString!, "staff-docs");
   });
 
+var storageConnectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage") ?? "UseDevelopmentStorage=true";
+
+builder.Services.AddSingleton(new TableStorageService(storageConnectionString));
+builder.Services.AddSingleton(new FileShareService(storageConnectionString, "staff-docs"));
+
+//builder.Services.AddSingleton(new CoffeeNChill.Services.TableStorageService("UseDevelopmentStorage=true"));
+
 if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("APPLICATIONINSIGHTS_CONNECTION_STRING")))
 {
     builder.Services.AddOpenTelemetry()

@@ -25,7 +25,7 @@ public class DownloadStaffDocument
     {
        var download = await _fileShareService.DownloadFileAsync(fileName);
 
-        if (download != null)
+        if (download == null)
             return new NotFoundObjectResult($"'{fileName}' not found.");
 
         _logger.LogInformation("Downloading {FileName}", fileName);
