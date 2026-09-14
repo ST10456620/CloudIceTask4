@@ -10,6 +10,12 @@ using CoffeeNChill.Services;
 var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.ConfigureFunctionsWebApplication();
+builder.Services.AddSingleton(new CoffeeNChill.Services.TableStorageService("UseDevelopmentStorage=true"));
+builder.Services.AddSingleton(sp =>
+  {
+      var connectionString = Environment.GetEnvironmentVariable("AzureFilesConnection");
+      return new FileShareService(connectionString!, "staff-docs");
+  });
 
 var storageConnectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage") ?? "UseDevelopmentStorage=true";
 
