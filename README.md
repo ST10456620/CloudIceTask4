@@ -150,6 +150,22 @@ Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/functions
 
 Microsoft, 2026. *Guide for running C# Azure Functions in an isolated worker model*.[online] Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=ihostapplicationbuilder%2Cconfig%2Cwindows>[Accessed 09 September].
 
+Microsoft .2025. Azure Functions developer guide.[Online] Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference >[Accessed on 11 September 2026].
+
+Microsoft .2025. Run Azure Functions in a custom Linux container.[Online] Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/functions-how-to-custom-container >[Accessed on 11 September 2026].
+
+Microsoft .2025. Use Azurite emulator for local Azure Storage development.[Online] Available at: <https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite >[Accessed on 11 September 2026].
+
+Microsoft .2025. Azure.Data.Tables client library for .NET.[Online] Available at: <https://learn.microsoft.com/en-us/dotnet/api/overview/azure/data.tables-readme >[Accessed on 11 September 2026].
+
+Microsoft .2025. Azure.Storage.Blobs client library for .NET.[Online] Available at: <https://learn.microsoft.com/en-us/dotnet/api/overview/azure/storage.blobs-readme >[Accessed on 11 September 2026].
+
+Docker .2025. Dockerfile reference.[Online] Available at: <https://docs.docker.com/reference/dockerfile/ >[Accessed on 11 September 2026].
+
+Docker .2025. docker run CLI reference.[Online] Available at: <https://docs.docker.com/reference/cli/docker/container/run/ >[Accessed on 11 September 2026].
+
+Docker .2025. Networking overview.[Online] Available at: <https://docs.docker.com/network/ >[Accessed on 11 September 2026].
+
 ## Annexure
 
 Disclosure of AI Usage in our Assesment 
