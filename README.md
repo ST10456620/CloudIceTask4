@@ -22,7 +22,7 @@ This repository covers **Part 1 -Azure Functions, Tables, Files & Docker Hub**, 
 ├── CoffeeNChill.slnx
 ├── Dockerfile
 ├── host.json
-├── local.settings.json    (gitignored — not committed)
+├── local.settings.json    
 ├── Program.cs
 └── README.md
 ```
@@ -85,6 +85,9 @@ connection to Azurite with no storage errors. The full Postman collection
 (all 8 endpoints) was run against the Dockerized container to confirm
 end-to-end functionality.
 
+### Docker Hub Links
+- Functions image: https://hub.docker.com/r/nthabe/coffeenchill-functions
+- Azurite image: https://hub.docker.com/r/nthabe/coffeenchill-azurite
 ## Endpoints
 
 ### Menu (Azure Table Storage)
