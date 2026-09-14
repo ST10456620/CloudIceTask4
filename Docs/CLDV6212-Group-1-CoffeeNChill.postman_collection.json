@@ -1,0 +1,213 @@
+{
+  "info": {
+    "_postman_id": "b17becbe-8693-45f9-a012-bb2807e1b4ff",
+    "name": "CLDV6212-Group-1-CoffeeNChill",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57363657",
+    "_collection_link": "https://go.postman.co/collection/57363657-b17becbe-8693-45f9-a012-bb2807e1b4ff?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Menu",
+      "item": [
+        {
+          "name": "CreateMenuItem",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"PartitionKey\": \"Cold Drinks\",\r\n  \"RowKey\": \"sku-002\",\r\n  \"Name\": \"Milkshake\",\r\n  \"Price\": 3.50,\r\n  \"IsAvailable\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/menu",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "menu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteMenuItem",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/menu/Cold Drinks/sku-002",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "menu",
+                "Cold Drinks",
+                "sku-002"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllMenuItems",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/menu",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "menu"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetMenuItemsByCategory",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/menu/category/Cold Drinks",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "menu",
+                "category",
+                "Cold Drinks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateMenuItem",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \"Price\": 4.25,\r\n \"IsAvailable\": false}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/menu/Cold Drinks/sku-002",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "menu",
+                "Cold Drinks",
+                "sku-002"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Staff",
+      "item": [
+        {
+          "name": "DownloadStaffDocument",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/documents/download/postman.txt",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "documents",
+                "download",
+                "postman.txt"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ListStaffDocuments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/api/documents",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "documents"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UploadStaffDocument",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": [
+                    "/C:/Users/cavec/OneDrive/Desktop/postman.txt"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseURL}}/api/documents/upload",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "api",
+                "documents",
+                "upload"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
