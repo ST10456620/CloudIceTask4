@@ -64,6 +64,26 @@ Run the Functions container standalone, connecting it to the Azurite container h
 ```
 docker run -p 7071:80 -e AzureWebJobsStorage="UseDevelopmentStorage=true" <dockerhub_username>/coffeenchill-functions:v1.0
 ```
+### Overview
+The CoffeeNChill Functions app is containerized using a multi-stage Dockerfile,
+built on the official Azure Functions .NET 10 isolated-worker runtime image.
+No Docker Compose is used in Part 1 — each container is built and run as a
+standalone unit via `docker run`, per the assignment requirements.
+
+### Dockerfile
+The Dockerfile has four stages:
+- `base` — the lightweight Azure Functions runtime image the final container runs on.
+- `build` — uses the full .NET 10 SDK to restore and compile the project.
+- `publish` — publishes the compiled output for deployment.
+- `final` — copies only the published output onto the lightweight base image,
+  keeping the final image small and free of build-time tooling.
+
+### Verification
+Both containers were confirmed running via `docker ps`, and the Functions
+container's logs (`docker logs coffeenchill-api`) confirmed a successful
+connection to Azurite with no storage errors. The full Postman collection
+(all 8 endpoints) was run against the Dockerized container to confirm
+end-to-end functionality.
 
 ## Endpoints
 
