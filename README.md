@@ -120,18 +120,20 @@ end-to-end functionality.
 - Removed the default `Function1.cs` scaffold stub.
 - Installed the `Azure.Data.Tables` NuGet package (12.12.0).
 - Installed the `Azure.Blob.Storage` NuGet package
-- Completed Document Functions (`UploadStaffDocument`, `ListStaffDocuments`, `DownloadStaffDocument`) and `FileShareService`. 
-
-### In Progress / Pending
-
+- Completed Document Functions (`UploadStaffDocument`, `ListStaffDocuments`, `DownloadStaffDocument`) and `FileShareService`.
 - Docker containerization: finalizing the Dockerfile, building and pushing `coffeenchill-functions:v1.0` and `coffeenchill-azurite:v1.0` to Docker Hub.
 - Postman collection covering all eight endpoints.
 - Full integration test against the containerized setup.
 - Demo video recording.
 
+
 ## Team Contributions
 
 *To be completed once all parts are merged — each member's section should summarize their contribution area (Menu Functions, Document Functions, Docker & Containerization, Postman/README/Video).*
+- Teboho Modiba (ST10444598): Project structure, Menu Functions and README
+- Victor Muguto (ST10485616): Postman
+- Nthabeleng Moloi (ST10470359): Docker & Containerization
+- Solethu Rubela (ST10456620): Document Functions and video
 
 ## Reference List
 
